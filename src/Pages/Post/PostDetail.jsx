@@ -9,7 +9,7 @@ const PostDetail = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('http://localhost:5000/posts/getPosts', {
+        const response = await fetch('https://server-zeta-eight-72.vercel.app/posts/getPosts', {
           method: 'GET'
         });
         const data = await response.json();

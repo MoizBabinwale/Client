@@ -22,7 +22,7 @@ const MakePost = () => {
 
     // Make a POST request to the server to save the post
     try {
-      const response = await fetch('http://localhost:5000/posts/upload', {
+      const response = await fetch('https://server-zeta-eight-72.vercel.app/posts/upload', {
         method: 'POST',
         crossDomain: true,
         headers: {

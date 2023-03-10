@@ -1,14 +1,13 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://stack-overflow-eight.vercel.app/",
+  baseURL: "https://server-zeta-eight-72.vercel.app/",
 });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("Profile")) {
-    req.headers.authorization = `Bearer ${
-      JSON.parse(localStorage.getItem("Profile")).token
-    }`;
+    req.headers.authorization = `Bearer ${JSON.parse(localStorage.getItem("Profile")).token
+      }`;
   }
   return req;
 });
