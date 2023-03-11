@@ -1,34 +1,39 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import moment from 'moment'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import moment from 'moment';
+import './PostDetail.css';
 
-const posts = ({post}) => {
+const Posts = ({ post }) => {
+    // const [postsList, setPostsList] = useState([]);
+
+    const style = {
+        height: 300,
+        width: 700,
+    };
+
     return (
-        <div className='display-post-container'>
-            <div className='display-votes-ans'>
-                <p>{post.upVote.length - post.downVote.length}
-                votes</p>
-            {/* </div>
-            <div className='display-votes-ans'> */}
-                <p>{post.noOfAnswers}answers</p>
-            </div>
-            <div className="display-post-details">
-                <Link to={`/posts/${post._id}`} className='post-title-link'>{post.postTitle}</Link>
-                <div className='display-tags-time'>
-                    <div className='display-tags'>
-                        {
-                            post.postTags.map((tag) => (
-                                <p key={tag}>{tag}</p>
-                            ))
-                        }
+        <>
+            <div className="post-container">
+                <div key={post._id} className="post-card">
+                    <div className="post-card-header">
+                        <div className="post-card-info">
+                            <p>{new Date(post.createdAt).toLocaleString()}</p>
+                        </div>
                     </div>
-                    <p className='display-time'>
-                        asked {moment(post.askedOn).fromNow()} { post.userPosted }
-                    </p>
+                    <div className="post-card-body">
+                        <h3>{post.title}</h3>
+                        <img style={style} src={post.image} alt={post.title} className="post-card-image" />
+                        <p>{post.tags.split(' ').map((tag) => `#${tag.trim()} `)}</p>
+                        <p className="display-time">
+                            asked {moment(post.askedOn).fromNow()} {post.userPosted}
+                        </p>
+                        <hr />
+                    </div>
                 </div>
             </div>
-        </div>
-    )
-}
+        </>
+    );
+};
 
-export default posts
+export default Posts;

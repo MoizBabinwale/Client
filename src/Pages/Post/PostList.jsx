@@ -1,11 +1,11 @@
 import React from 'react'
 import Posts from './Posts'
-const PostList = ({postsList}) => {
+const PostList = ({ postsList }) => {
     return (
         <>
             {
                 postsList.map((post) => (
-                    <Posts post={post} key={post._id}/>
+                    <Posts post={post} key={post._id} />
                 ))
             }
         </>
@@ -13,3 +13,4 @@ const PostList = ({postsList}) => {
 }
 
 export default PostList
+
