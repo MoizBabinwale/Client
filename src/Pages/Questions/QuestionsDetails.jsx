@@ -24,7 +24,7 @@ const QuestionsDetails = () => {
   const dispatch = useDispatch();
   const User = useSelector((state) => state.currentUserReducer);
   const location = useLocation();
-  const url = "https://stackoverflowclone-henna.vercel.app/";
+  const url = "https://server-two-sooty-56.vercel.app";
 
   const handlePostAns = (e, answerLength) => {
     e.preventDefault();
