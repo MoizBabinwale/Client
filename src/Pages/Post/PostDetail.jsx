@@ -4,16 +4,16 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useSelector } from "react-redux"
 import './PostDetail.css'
 import PostList from "./PostList"
+import { getAllPosts } from "../../api"
 const PostDetail = () => {
   const [posts, setPosts] = useState([]);
   const user = 1;
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('https://server-two-sooty-56.vercel.app/posts/getPosts', {
-          method: 'GET'
-        });
+        const response = await fetch("http://localhost:5000/posts/getPosts")
         const data = await response.json();
+        console.log(data);
         setPosts(data);
       } catch (error) {
         console.error(error);

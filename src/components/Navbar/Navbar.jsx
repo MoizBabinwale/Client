@@ -9,6 +9,7 @@ import Avatar from "../../components/Avatar/Avatar";
 import "./Navbar.css";
 import { setCurrentUser } from "../../actions/currentUser";
 import bars from "../../assets/bars-solid.svg";
+import { NavLink } from "react-router-dom";
 
 const Navbar = ({ handleSlideIn }) => {
   const dispatch = useDispatch();
@@ -65,7 +66,7 @@ const Navbar = ({ handleSlideIn }) => {
             <>
               <Avatar
                 backgroundColor="#009dff"
-                px="10px"
+                px="15px"
                 py="7px"
                 borderRadius="50%"
                 color="white"

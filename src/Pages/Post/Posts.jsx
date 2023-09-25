@@ -17,6 +17,7 @@ const Posts = ({ post }) => {
             <div className="post-container">
                 <div key={post._id} className="post-card">
                     <div className="post-card-header">
+                        <h3>{post.userPosted}</h3>
                         <div className="post-card-info">
                             <p>{new Date(post.createdAt).toLocaleString()}</p>
                         </div>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './Post.css';
+import { uploadPosts } from '../../api';
 
 const MakePost = () => {
   const [image, setImage] = useState(null);
@@ -13,35 +14,40 @@ const MakePost = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (User) {
+      // Create a FormData object to store the form data
+      const formData = new FormData();
+      formData.append('title', title);
+      formData.append('tags', tags);
+      formData.append('image', image);
 
-    // Create a FormData object to store the form data
-    const formData = new FormData();
-    formData.append('title', title);
-    formData.append('tags', tags);
-    formData.append('image', image);
-
-    // Make a POST request to the server to save the post
-    try {
-      const response = await fetch('https://server-two-sooty-56.vercel.app/posts/upload', {
-        method: 'POST',
-        crossDomain: true,
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-        body: JSON.stringify({
-          base64: image,
-          title,
-          tags
+      // Make a POST request to the server to save the post
+      try {
+        const response = await fetch("http://localhost:5000/posts/upload", {
+          method: 'POST',
+          crossDomain: true,
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify({
+            base64: image,
+            title,
+            tags,
+            userPosted: User.result.name,
+          })
         })
-      })
-      const data = await response.json();
-      console.log(data);
-      navigate('/DisplayPost');
-    } catch (error) {
-      console.error(error);
+        const data = await response.json();
+        // navigate('/DisplayPost');
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      alert("Login to make a Post");
     }
+
+
   };
 
   const imageToBase64 = (event) => {
@@ -51,7 +57,6 @@ const MakePost = () => {
     reader.readAsDataURL(file);
 
     reader.onload = () => {
-      console.log(reader.result);
       setImage(reader.result);
     };
 
