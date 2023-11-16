@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import decode from "jwt-decode";
+import { NavLink } from 'react-router-dom'
 
 import logo from "../../assets/logo.png";
 import search from "../../assets/search-solid.svg";
@@ -9,7 +10,6 @@ import Avatar from "../../components/Avatar/Avatar";
 import "./Navbar.css";
 import { setCurrentUser } from "../../actions/currentUser";
 import bars from "../../assets/bars-solid.svg";
-import { NavLink } from "react-router-dom";
 
 const Navbar = ({ handleSlideIn }) => {
   const dispatch = useDispatch();
@@ -39,22 +39,22 @@ const Navbar = ({ handleSlideIn }) => {
         <button className="slide-in-icon" onClick={() => handleSlideIn()}>
           <img src={bars} alt="bars" width="15" />
         </button>
-        <div className="navbar-1">
-          <Link to="/" className="nav-item nav-logo">
-            <img src={logo} alt="logo" />
+        <div className="flex flex-row gap-6 ">
+          <Link to="/" className="nav-item nav-logo cursor-pointer mt-2">
+            <img className="w-[150px] cursor-pointer" src={logo} alt="logo" />
           </Link>
-          <Link to="/" className="nav-item nav-btn res-nav">
-            About
+          <Link to="/" className=" cursor-pointer mt-2 pl-2 pr-2 pt-1 items-center hover:bg-[#d3d2d2] rounded-md">
+            <p> About</p>
           </Link>
-          <Link to="/" className="nav-item nav-btn res-nav">
+          <Link to="/" className="cursor-pointer mt-2 pl-2 pr-2 pt-1 items-center hover:bg-[#d3d2d2] rounded-md">
             Products
           </Link>
-          <Link to="/" className="nav-item nav-btn res-nav">
+          <Link to="/" className="cursor-pointer mt-2 pl-2 pr-2 pt-1 items-center hover:bg-[#d3d2d2] rounded-md">
             For Teams
           </Link>
-          <form>
-            <input type="text" placeholder="Search..." />
-            <img src={search} alt="search" width="18" className="search-icon" />
+          <form className="flex relative w-[500px] border-none">
+            <input type="text" placeholder="Search..." className="w-[100%] pl-2  border-none" />
+            <img src={search} alt="search" width="18" className="absolute top-3 end-2 cursor-pointer" />
           </form>
         </div>
         <div className="navbar-2">

@@ -30,7 +30,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App flex justify-center items-center">
       <Router>
         <Navbar handleSlideIn={handleSlideIn} />
         <AllRoutes slideIn={slideIn} handleSlideIn={handleSlideIn} />

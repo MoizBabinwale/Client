@@ -38,9 +38,9 @@ const Auth = () => {
   };
 
   return (
-    <section className="auth-section">
+    <section className="auth-section  w-[100%]">
       {isSignup && <AboutAuth />}
-      <div className="auth-container-2">
+      <div className="auth-container-2 ">
         <img src={icon} alt="stack overflow" className="login-logo" />
         <form onSubmit={handleSubmit}>
           {isSignup && (
@@ -50,6 +50,7 @@ const Auth = () => {
                 type="text"
                 id="name"
                 name="name"
+                placeholder="Enter Name"
                 value={name}
                 onChange={(e) => {
                   setName(e.target.value);
@@ -63,6 +64,7 @@ const Auth = () => {
               type="email"
               name="email"
               id="email"
+              placeholder="Enter Email"
               value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
@@ -82,6 +84,7 @@ const Auth = () => {
               type="password"
               name="password"
               id="password"
+              placeholder="Enter Password"
               value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
