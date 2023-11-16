@@ -39,7 +39,9 @@ const MakePost = () => {
           })
         })
         const data = await response.json();
-        // navigate('/DisplayPost');
+        if (data) {
+          navigate('/DisplayPost');
+        }
       } catch (error) {
         console.error(error);
       }
