@@ -8,7 +8,7 @@ const UsersList = () => {
   const users = useSelector((state) => state.usersReducer);
 
   return (
-    <div className="user-list-container">
+    <div className="user-list-container max-w-full">
       {users.map((user) => (
         <User user={user} key={user?._id} />
       ))}

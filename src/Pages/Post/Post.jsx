@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './Post.css';
 import { uploadPosts } from '../../api';
+import { Alert } from '../../components/Alert/Alert';
 
 const MakePost = () => {
   const [image, setImage] = useState(null);
@@ -46,10 +47,9 @@ const MakePost = () => {
         console.error(error);
       }
     } else {
-      alert("Login to make a Post");
+      <Alert type="error" message="Login to make a post" />;
+
     }
-
-
   };
 
   const imageToBase64 = (event) => {
@@ -68,28 +68,37 @@ const MakePost = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-container">
-      <div>
-        <label>
-          Image:
-          <input type="file" accept="image/*" onChange={imageToBase64} />
-        </label>
-      </div>
-      <div>
-        <label>
-          Title:
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-        </label>
-      </div>
-      <div>
-        <label>
-          Tags:
-          <input type="text" value={tags} onChange={(e) => setTags(e.target.value)} />
-        </label>
-      </div>
-      <button type="submit">Submit</button>
-      <img src={image} height={150} width={150} />
-    </form>
+    <>
+      {/* <Alert type="error" message="Login to make a post" />; */}
+      <form onSubmit={handleSubmit} className="form-container  p-4" style={{ width: "100%" }}>
+        <div className='border border-b-2 p-3'>
+
+          <div className="mb-4">
+            <label className="block text-sm font-bold mb-2">
+              Image:
+              <input type="file" accept="image/*" onChange={imageToBase64} className="border border-gray-300 p-2 mt-1 w-full" />
+            </label>
+          </div>
+          <div className="mb-4">
+            <label className="block text-sm font-bold mb-2">
+              Title:
+              <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Enter Title' className="border border-gray-300 p-2 mt-1 w-full" />
+            </label>
+          </div>
+          <div className="mb-4">
+            <label className="block text-sm font-bold mb-2">
+              Tags:
+              <input type="text" value={tags} onChange={(e) => setTags(e.target.value)} placeholder='Enter Tags' className="border border-gray-300 p-2 mt-1 w-full" />
+            </label>
+          </div>
+          <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+          <div className='w-100'>
+            <img src={image} height={150} width={350} className="mt-4 w-100" />
+          </div>
+        </div>
+      </form>
+
+    </>
   );
 };
 

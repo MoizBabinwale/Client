@@ -9,7 +9,7 @@ import LeftSidebar from "../../components/LeftSidebar/LeftSidebar";
 import Avatar from "../../components/Avatar/Avatar";
 import EditProfileForm from "./EditProfileForm";
 import ProfileBio from "./ProfileBio";
-import "./UsersProfile.css";
+// import "./UsersProfile.css";
 
 const UserProfile = ({ slideIn, handleSlideIn }) => {
   const { id } = useParams();
@@ -19,7 +19,7 @@ const UserProfile = ({ slideIn, handleSlideIn }) => {
   const [Switch, setSwitch] = useState(false);
 
   return (
-    <div className="home-container-1">
+    <div className="lg:flex lg:p-3  gap-2 p-2 lg:justify-between max-w-[1250px] min-h-fit w-full m-auto">
       <LeftSidebar slideIn={slideIn} handleSlideIn={handleSlideIn} />
       <div className="home-container-2">
         <section>

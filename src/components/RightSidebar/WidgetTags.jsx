@@ -20,14 +20,18 @@ const WidgetTags = () => {
   ];
 
   return (
-    <div className="widget-tags">
-      <h4>Watched tags</h4>
-      <div className="widget-tags-div">
+    <div className="flex flex-col border-[#f1e5bc] border-2  bg-[#fdf7e2] p-4">
+      <h4 className="text-lg font-bold mb-2">Watched tags</h4>
+      <div className="flex flex-wrap gap-2">
         {tags.map((tag) => (
-          <p key={tag}>{tag}</p>
+          <div key={tag} className="flex items-center">
+            <span className=" font-bold mr-1">•</span>
+            <p className="">{tag}</p>
+          </div>
         ))}
       </div>
     </div>
+
   );
 };
 

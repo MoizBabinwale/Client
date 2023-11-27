@@ -37,18 +37,17 @@ const PostDetail = () => {
 
 
   return (
-    <>
-      <div className="btn">
-        <button onClick={checkAuth} className='ask-btn'>Post</button>
+    <div className="float-left my-6 p-2 lg:w-[700px]  block w-[100%]">
+      <div className="btn ">
+        <button onClick={checkAuth} className='ask-btn'>New Post</button>
       </div>
       {posts.length === null || "" ? (
         <h1>Loading...</h1>
       ) :
         <>
-          <p>{posts.length} posts</p>
           <PostList postsList={posts} />
         </>}
-    </>
+    </div>
   )
 }
 export default PostDetail

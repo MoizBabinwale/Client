@@ -4,7 +4,7 @@ import moment from "moment";
 
 const Questions = ({ question }) => {
   return (
-    <div className="display-question-container">
+    <div className="display-question-container float-left w-50 mt-5 mb-5">
       <div className="display-votes-ans">
         <p>{question.upVote.length - question.downVote.length}</p>
         <p>votes</p>
@@ -17,9 +17,9 @@ const Questions = ({ question }) => {
         <Link to={`/Questions/${question._id}`} className="question-title-link">
           {question.questionTitle.length > (window.innerWidth <= 400 ? 70 : 90)
             ? question.questionTitle.substring(
-                0,
-                window.innerWidth <= 400 ? 70 : 90
-              ) + "..."
+              0,
+              window.innerWidth <= 400 ? 70 : 90
+            ) + "..."
             : question.questionTitle}
         </Link>
         <div className="display-tags-time">

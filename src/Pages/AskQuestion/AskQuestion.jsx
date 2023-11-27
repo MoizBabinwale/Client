@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import "./AskQuestion.css";
+// import "./AskQuestion.css";
 import { askQuestion } from "../../actions/question";
 
 const AskQuestion = () => {
@@ -39,7 +39,7 @@ const AskQuestion = () => {
     }
   };
   return (
-    <div className="ask-question">
+    <div className="ask-question" style={{ width: "100%" }}>
       <div className="ask-ques-container">
         <h1>Ask a public Question</h1>
         <form onSubmit={handleSubmit}>

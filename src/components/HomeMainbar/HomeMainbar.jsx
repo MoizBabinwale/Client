@@ -21,7 +21,7 @@ const HomeMainbar = () => {
   };
 
   return (
-    <div className="main-bar">
+    <div className="float-left my-6 p-2 lg:w-[700px]  block w-auto">
       <div className="main-bar-header">
         {location.pathname === "/" ? (
           <h1>Top Questions</h1>
