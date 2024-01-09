@@ -7,7 +7,7 @@ const EditProfileForm = ({ currentUser, setSwitch }) => {
   const [about, setAbout] = useState(currentUser?.result?.about);
   const [tags, setTags] = useState([]);
   const dispatch = useDispatch();
-  console.log(tags);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (tags[0] === "" || tags.length === 0) {
@@ -47,14 +47,15 @@ const EditProfileForm = ({ currentUser, setSwitch }) => {
           <input
             type="text"
             id="tags"
+            className="m-2 p-2"
             onChange={(e) => setTags(e.target.value.split(" "))}
           />
         </label>
         <br />
-        <input type="submit" value="Save profile" className="user-submit-btn" />
+        <input type="submit" value="Save profile" className="p-2 bg-blue-500 hover:bg-blue-400 text-white  rounded-md" />
         <button
           type="button"
-          className="user-cancel-btn"
+          className="p-2 bg-red-500 hover:bg-red-700 text-white  rounded-md ml-4"
           onClick={() => setSwitch(false)}
         >
           Cancel

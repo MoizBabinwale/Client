@@ -57,7 +57,7 @@ const Navbar = ({ handleSlideIn }) => {
             <img src={search} alt="search" width="18" className="absolute top-2 end-2 cursor-pointer" />
           </form>
         </div>
-        <div className="mt-4 mr-1">
+        <div className="mt-4 mr-1 flex gap-2">
           {User === null ? (
             <Link to="/Auth" className="p-2 bg-blue-500 hover:bg-blue-400 text-white rounded-md">
               Log in

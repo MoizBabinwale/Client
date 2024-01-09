@@ -19,7 +19,7 @@ const UserProfile = ({ slideIn, handleSlideIn }) => {
   const [Switch, setSwitch] = useState(false);
 
   return (
-    <div className="lg:flex lg:p-3  gap-2 p-2 lg:justify-between max-w-[1250px] min-h-fit w-full m-auto">
+    <div className="lg:flex lg:p-3  gap-2 p-2 lg:gap-8 max-w-[1250px] min-h-fit w-full m-auto">
       <LeftSidebar slideIn={slideIn} handleSlideIn={handleSlideIn} />
       <div className="home-container-2">
         <section>

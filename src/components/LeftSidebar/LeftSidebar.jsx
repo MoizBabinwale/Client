@@ -11,7 +11,6 @@ const LeftSidebar = ({ slideIn }) => {
 
   useEffect(() => {
     document.getElementById("menu").click()
-    console.log(slideIn);
   }, [slideIn])
 
 

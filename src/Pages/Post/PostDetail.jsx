@@ -11,9 +11,8 @@ const PostDetail = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:5000/posts/getPosts")
+        const response = await fetch("https://server-delta-swart.vercel.app/posts/getPosts")
         const data = await response.json();
-        console.log(data);
         setPosts(data);
       } catch (error) {
         console.error(error);
